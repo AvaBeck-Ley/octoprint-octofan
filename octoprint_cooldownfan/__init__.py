@@ -13,7 +13,7 @@ from flask import jsonify
 from octoprint.util import ResettableTimer
 import flask
 
-class OctoFanPlugin(
+class OctofanPlugin(
 						octoprint.plugin.StartupPlugin,
 						octoprint.plugin.ShutdownPlugin,
 						octoprint.plugin.EventHandlerPlugin,
@@ -175,9 +175,9 @@ class OctoFanPlugin(
 		# Define your plugin's asset files to automatically include in the
 		# core UI here.
 		return dict(
-			js=["js/cooldownfan.js"],
-			css=["css/cooldownfan.css"],
-			less=["less/cooldownfan.less"]
+			js=["js/octofan.js"],
+			css=["css/octofan.css"],
+			less=["less/octofan.less"]
 		)
 
 	##~~ Softwareupdate hook
@@ -187,29 +187,29 @@ class OctoFanPlugin(
 		# Plugin here. See https://docs.octoprint.org/en/master/bundledplugins/softwareupdate.html
 		# for details.
 		return dict(
-			cooldownfan=dict(
-				displayName="Cooldown Fan",
+			octofan=dict(
+				displayName="Octo Fan",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
 				type="github_release",
 				user="fmalekpour",
-				repo="OctoPrint-Cooldownfan",
+				repo="OctoPrint-Octofan",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/fmalekpour/OctoPrint-Cooldownfan/archive/{target_version}.zip"
+				pip="https://github.com/avab1066/OctoPrint-Octofan/archive/{target_version}.zip"
 			)
 		)
 
 
-__plugin_name__ = "Octo fan"
+__plugin_name__ = "Octofan"
 
 __plugin_pythoncompat__ = ">=2.7,<4" # python 2 and 3
 
 def __plugin_load__():
 	global __plugin_implementation__
-	__plugin_implementation__ = OctoFanPlugin()
+	__plugin_implementation__ = OctofanPlugin()
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
