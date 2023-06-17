@@ -13,7 +13,7 @@ from flask import jsonify
 from octoprint.util import ResettableTimer
 import flask
 
-class CooldownfanPlugin(
+class OctoFanPlugin(
 						octoprint.plugin.StartupPlugin,
 						octoprint.plugin.ShutdownPlugin,
 						octoprint.plugin.EventHandlerPlugin,
@@ -203,13 +203,13 @@ class CooldownfanPlugin(
 		)
 
 
-__plugin_name__ = "Cooldown Fan"
+__plugin_name__ = "Octo fan"
 
 __plugin_pythoncompat__ = ">=2.7,<4" # python 2 and 3
 
 def __plugin_load__():
 	global __plugin_implementation__
-	__plugin_implementation__ = CooldownfanPlugin()
+	__plugin_implementation__ = OctoFanPlugin()
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
